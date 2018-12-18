@@ -1,0 +1,7 @@
+keys/*
+data/images/*
+data/*.csv
+models/*
+output/*
+config/config_logs.yml
+*/__pycache__
