@@ -11,7 +11,7 @@ def build_file_configuration():
               'sku': 1,
               'images': 1, 'clean': 1, 
               'tag': 1, 'push': 1}
-    time_info = {'start_date': '2018-08-01',
+    time_info = {'start_date': '2018-06-20',
                  'default_end_date': str(today).split(' ')[0],
                  'end_date': None}
     country_info = {'countries': ['sg', 'hk', 'id', 'ph', 'my', 'tw'],
@@ -21,7 +21,7 @@ def build_file_configuration():
                 'query_time_range_format_file': os.path.join(proj_dir, 'query', 'query_time_range.sql'),
                 'sku_info_time_range_format': os.path.join(proj_dir, 'data', 'country:{}_from:{}_to:{}.csv'),
                 'sku_info_format': os.path.join(proj_dir, 'data', 'new_skus_{}.csv')}
-    sku_image = {'n_threads': 25,
+    sku_image = {'n_threads': 16,
                  'image_format_file': os.path.join(proj_dir, 'data', 'images', '{}_{}.jpg'),
                  'image_url_format': 'http://zalora-media-live-{}.s3.amazonaws.com/product/{}/{}/{}.jpg',
                  'images_per_sku': 1, 'old_image_folder': os.path.join(proj_dir, 'data', 'old_images')}

@@ -7,6 +7,7 @@ import threading
 import pandas.io.sql as sqlio
 import urllib.request
 import boto3
+from PIL import Image
 
 
 def download_sku_info(config):
@@ -61,6 +62,10 @@ def _download_sku_image(config, row):
     def _download_image_from(image_url, image_local_file):
         try:
             urllib.request.urlretrieve(image_url, image_local_file)
+            try:
+                Image.open(image_local_file)
+            except:
+                os.remove(image_local_file)
         except:
             return False
         return True
@@ -80,8 +85,8 @@ def _download_sku_image(config, row):
         image_local_file = config['sku_image']['image_format_file'].format(country,
                                                                            sku,
                                                                            id_catalog_config)
-        if not _download_image_from(ak_image_url, image_local_file):
-            _download_image_from(s3_image_url, image_local_file)
+        if not _download_image_from(s3_image_url, image_local_file):
+            _download_image_from(ak_image_url, image_local_file)
 
 
 def _thread_download(config, counts, thread_index, chunk):
