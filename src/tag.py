@@ -37,7 +37,7 @@ def _get_predictions(config, image_list, labels):
                              y=CategoryList(labels, classes=classes),
                              tfms=get_transforms()[1],
                              size=224)
-        test_dl = DeviceDataLoader(DataLoader(test_lbl, batch_size=64), tfms = learn.data.valid_dl.tfms,device=torch.device('cpu'))
+        test_dl = DeviceDataLoader(DataLoader(test_lbl, batch_size=64), tfms = learn.data.valid_dl.tfms,device=torch.device('cuda'))
         learn.data.test_dl = test_dl
         probabilities, _ = learn.get_preds(ds_type=DatasetType.Test)
         ranking = np.asarray(probabilities.argsort()[:, -2:])

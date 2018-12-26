@@ -11,11 +11,11 @@ def build_file_configuration():
               'sku': 1,
               'images': 1, 'clean': 1, 
               'tag': 1, 'push': 1}
-    time_info = {'start_date': '2018-06-20',
+    time_info = {'start_date': '2018-05-15',
                  'default_end_date': str(today).split(' ')[0],
                  'end_date': None}
     country_info = {'countries': ['sg', 'hk', 'id', 'ph', 'my', 'tw'],
-                    'countries_to_run': ['sg', 'hk']}
+                    'countries_to_run': ['sg', 'hk', 'id', 'ph', 'my', 'tw']}
     sku_info = {'pitbull_key_file': os.path.join(proj_dir, 'keys', 'keys.json'),
                 'query_format_file': os.path.join(proj_dir, 'query', 'query.sql'),
                 'query_time_range_format_file': os.path.join(proj_dir, 'query', 'query_time_range.sql'),
